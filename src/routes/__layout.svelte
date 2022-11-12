@@ -7,6 +7,7 @@
 	import { Svg } from '@smui/common/elements';
 	import { mdiGithub, mdiWeb } from '@mdi/js';
 
+
 	let topAppBar: TopAppBarComponentDev;
 
 	let lightTheme =
@@ -26,7 +27,7 @@
 	}
 </script>
 
-<TopAppBar bind:this={topAppBar} variant="standard">
+<!-- <TopAppBar bind:this={topAppBar} variant="standard">
 	<Row>
 		<Section>
 			<Title>My App</Title>
@@ -44,6 +45,19 @@
 			</IconButton>
 		</Section>
 	</Row>
+</TopAppBar> -->
+<TopAppBar bind:this={topAppBar} variant="short">
+  <Row>
+    <Section>
+      <IconButton class="material-icons">menu</IconButton>
+      <Title>Short</Title>
+    </Section>
+    <Section align="end" toolbar>
+      <IconButton class="material-icons" aria-label="Download"
+        >file_download</IconButton
+      >
+    </Section>
+  </Row>
 </TopAppBar>
 
 <AutoAdjust {topAppBar} style="display: flex; justify-content: space-between;">
