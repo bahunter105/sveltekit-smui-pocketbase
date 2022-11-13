@@ -43,27 +43,31 @@
 	{/if}
 </p>
 
-{#await resultList}
-  <p>...Loading</p>
-{:then value}
-  <div class="card-container">
+
+<div style="display: flex; justify-content: center">
+  {#await resultList}
+  <!-- <p>Loading...</p> -->
+  <CircularProgress style="height: 32px; width: 32px;" indeterminate />
+  {:then value}
+  <div class="card-container" style="grid-gap: 20px 10px;gap: 1rem;display: flex;">
     {#each value.items as item}
-      <Card>
-        <Content>{item.id}</Content>
-        <Content>{item.total_price}</Content>
-        <Actions fullBleed>
-          <Button on:click={() => clicked++}>
-            <Label>Action</Label>
-            <i class="material-icons" aria-hidden="true">arrow_forward</i>
-          </Button>
-        </Actions>
-      </Card>
+    <Card>
+      <Content>{item.id}</Content>
+      <Content>{item.total_price}</Content>
+      <Actions fullBleed>
+        <Button on:click={() => clicked++}>
+          <Label>Action</Label>
+          <i class="material-icons" aria-hidden="true">arrow_forward</i>
+        </Button>
+      </Actions>
+    </Card>
     {/each}
   </div>
-{:catch error}
+  {:catch error}
   <p>{Error}</p>
 
-{/await}
+  {/await}
+</div>
 
 
 
